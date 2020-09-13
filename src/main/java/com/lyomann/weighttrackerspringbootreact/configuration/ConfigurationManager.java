@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class ConfigurationManager {
     @Bean
     public Weight weight() {
-        return new Weight("Default", 170);
+        return new Weight(0, "01/11/2020");
     }
 
 }

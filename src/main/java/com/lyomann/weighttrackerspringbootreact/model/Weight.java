@@ -1,24 +1,30 @@
 package com.lyomann.weighttrackerspringbootreact.model;
 
 
-import org.springframework.stereotype.Component;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 public class Weight {
 
-    private final String date;
     private final int weight;
+    private String localDate = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    
 
-    public Weight(String date, int weight) {
-        this.date = date;
+    public Weight(int weight, String localDate) {
         this.weight = weight;
-    }
-
-    public String getDate() {
-        return date;
+        this.localDate = localDate;
     }
 
     public int getWeight() {
         return weight;
+    }
+
+    public String getLocalDate() {
+        return localDate;
+    }
+
+    public void setLocalDate(String localDate) {
+        this.localDate = localDate;
     }
 }
