@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +24,8 @@ public class WeightService {
 
     public List<Weight> getAllWeights(){
         List<Weight> weights = new ArrayList<>();
-        weights.add(new Weight(0, weight.getLocalDate()));
-        weights.add(new Weight(0,weight.getLocalDate()));
+        weights.add(new Weight(0));
+        weights.add(new Weight(0));
 
         return weights;
     }

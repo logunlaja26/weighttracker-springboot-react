@@ -8,24 +8,16 @@ import java.time.format.DateTimeFormatter;
 public class Weight {
 
     private final int weight;
-    private String localDate = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
 
 
-    public Weight(int weight, String localDate) {
+
+
+    public Weight(int weight) {
         this.weight = weight;
-        this.localDate = localDate;
+        LocalDate.now();
+
     }
 
-    public int getWeight() {
-        return weight;
-    }
 
-    public String getLocalDate() {
-        return localDate;
-    }
-
-    public void setLocalDate(String localDate) {
-        this.localDate = localDate;
-    }
 }
