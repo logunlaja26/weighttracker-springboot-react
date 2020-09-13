@@ -9,7 +9,8 @@ public class Weight {
 
     private final int weight;
     private String localDate = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-    
+
+
 
     public Weight(int weight, String localDate) {
         this.weight = weight;
