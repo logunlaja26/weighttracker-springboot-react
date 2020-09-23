@@ -22,6 +22,7 @@ public class WeightController {
 
     @GetMapping
     public List<Weight> getAllWeights(){
+        //return List.of( new Weight(173,"01/22/2020"),new Weight(178,"01/23/2030"));
         return weightService.getAllWeights();
     }
 }

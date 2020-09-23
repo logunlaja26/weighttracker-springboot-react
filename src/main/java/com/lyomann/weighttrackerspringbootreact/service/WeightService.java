@@ -25,6 +25,7 @@ public class WeightService {
         List<Weight> weights = new ArrayList<>();
         weights.add(new Weight(0, weight.getLocalDate()));
         weights.add(new Weight(0,weight.getLocalDate()));
+      
 
         return weights;
     }

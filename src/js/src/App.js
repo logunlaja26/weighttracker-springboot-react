@@ -1,17 +1,45 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { getAllWeight } from "./client";
-import { render } from "@testing-library/react";
+import { getAllWeights } from "./client";
+import { Table } from "antd";
 
 class App extends Component {
-  render() {
-    getAllWeight().then((res) =>
-      res.json().then((weight) => {
-        console.log(weight);
+  state = {
+    weights: [],
+  };
+
+  componentDidMount() {
+    this.fetchWeights();
+  }
+
+  fetchWeights = () => {
+    getAllWeights().then((res) =>
+      res.json().then((weights) => {
+        console.log(weights);
+        this.setState({ weights: weights });
       })
     );
-    return <h1>Hello Spring Boot</h1>;
+  };
+  render() {
+    const { weights } = this.state;
+    if (weights && weights.length) {
+      const columns = [
+        {
+          title: "Weight",
+          dataIndex: "weight",
+          key: "weight",
+        },
+        {
+          title: "Date",
+          dataIndex: "localDate",
+          key: "localDate",
+        },
+      ];
+
+      return <Table dataSource={weights} columns={columns} rowKey="weight" />;
+    } else {
+      return null;
+    }
   }
 }
 
