@@ -27,8 +27,6 @@ public class WeightService {
         weights.add(new Weight(weight.getWeightId(), 175,weight.getLocalDate()));
         weights.add(new Weight(weight.getWeightId(), 180,weight.getLocalDate()));
         weights.add(new Weight(weight.getWeightId(), 189,weight.getLocalDate()));
-      
-
         return weights;
     }
 
