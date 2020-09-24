@@ -23,11 +23,10 @@ public class WeightService {
 
     public List<Weight> getAllWeights(){
         List<Weight> weights = new ArrayList<>();
-        weights.add(new Weight(0, weight.getLocalDate()));
-        weights.add(new Weight(175,weight.getLocalDate()));
-        weights.add(new Weight(180,weight.getLocalDate()));
-      
-
+        weights.add(new Weight(weight.getWeightId(), 0, weight.getLocalDate()));
+        weights.add(new Weight(weight.getWeightId(), 175,weight.getLocalDate()));
+        weights.add(new Weight(weight.getWeightId(), 180,weight.getLocalDate()));
+        weights.add(new Weight(weight.getWeightId(), 189,weight.getLocalDate()));
         return weights;
     }
 
