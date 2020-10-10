@@ -1,11 +1,18 @@
 import React, { Component } from "react";
+//import Container from "./Container";
 import "./App.css";
 import { getAllWeights } from "./client";
-import { Table } from "antd";
+import { Table, Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+
+const getIndicatorIcon = () => (
+  <LoadingOutlined style={{ fontSize: 24 }} spin />
+);
 
 class App extends Component {
   state = {
     weights: [],
+    isFetching: true,
   };
 
   componentDidMount() {
@@ -13,15 +20,23 @@ class App extends Component {
   }
 
   fetchWeights = () => {
+    this.setState({ isFetching: true });
     getAllWeights().then((res) =>
       res.json().then((weights) => {
         console.log(weights);
-        this.setState({ weights: weights });
+        this.setState({ weights: weights, isFetching: false });
       })
     );
   };
   render() {
-    const { weights } = this.state;
+    const { weights, isFetching } = this.state;
+    if (isFetching) {
+      return (
+        <container>
+          <Spin indicator={getIndicatorIcon()} />
+        </container>
+      );
+    }
     if (weights && weights.length) {
       const columns = [
         {
